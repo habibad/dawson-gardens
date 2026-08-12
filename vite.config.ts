@@ -10,7 +10,7 @@ export default defineConfig({
       server: {
         entry: "server",
         // Auto-use vercel preset when deploying to Vercel
-        ...(process.env.VERCEL ? { preset: "vercel" } : {}),
+        ...(process.env['VERCEL'] ? { preset: "vercel" } : {}),
       },
     }),
     react(),
