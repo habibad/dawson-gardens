@@ -9,9 +9,9 @@ import { track } from "@/lib/analytics";
 import { Reveal } from "./Reveal";
 
 const decor = [
-  { src: work2, alt: "Native front garden in Perth", className: "left-0 top-6 w-32 lg:w-44 rotate-[-4deg]" },
+  { src: work2, alt: "Native front garden in Perth", className: "left-6 top-6 w-32 lg:w-44 rotate-[-4deg]" },
   { src: svcLawn, alt: "Freshly mowed lawn", className: "left-10 bottom-4 w-28 lg:w-40 rotate-[5deg]" },
-  { src: work3, alt: "Courtyard garden planting", className: "right-0 top-10 w-32 lg:w-44 rotate-[4deg]" },
+  { src: work3, alt: "Courtyard garden planting", className: "right-6 top-10 w-32 lg:w-44 rotate-[4deg]" },
   { src: svcHedge, alt: "Trimmed hedge along a garden path", className: "right-12 bottom-2 w-28 lg:w-40 rotate-[-5deg]" },
 ];
 

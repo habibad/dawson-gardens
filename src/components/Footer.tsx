@@ -11,7 +11,7 @@ export function Footer() {
           <img
             src={logoLight.url}
             alt={`${site.name} logo`}
-            className="h-24 w-auto object-contain object-left"
+            className="h-32 w-auto object-contain object-left"
             loading="lazy"
           />
           <p className="mt-6 max-w-sm text-sm leading-relaxed opacity-75">

@@ -44,7 +44,7 @@ export function Header() {
           <img
             src={logoDark.url}
             alt={`${site.name} logo`}
-            className={`w-auto transition-all duration-300 ${scrolled ? "h-10" : "h-12 md:h-14"}`}
+            className={`w-auto transition-all duration-300 ${scrolled ? "h-12" : "h-16 md:h-20"}`}
             style={{ objectFit: "contain" }}
             width={160}
             height={160}
