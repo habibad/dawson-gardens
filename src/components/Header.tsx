@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Menu, X, Phone } from "lucide-react";
-import logoDark from "@/assets/dawson-logo-dark.png.asset.json";
-import logoLight from "@/assets/dawson-logo-light.png.asset.json";
+import logoDark from "@/assets/dawson-logo-dark.png";
+import logoLight from "@/assets/dawson-logo-light.png";
 import { nav, site } from "@/content/site";
 import { track } from "@/lib/analytics";
 
@@ -25,16 +25,14 @@ export function Header() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-background/90 shadow-[0_1px_0_0_var(--border)] backdrop-blur-md"
-          : "bg-transparent"
-      }`}
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${scrolled
+        ? "bg-background/90 shadow-[0_1px_0_0_var(--border)] backdrop-blur-md"
+        : "bg-transparent"
+        }`}
     >
       <div
-        className={`mx-auto flex max-w-7xl items-center gap-4 px-5 transition-all duration-300 sm:px-8 ${
-          scrolled ? "h-16" : "h-20 md:h-24"
-        }`}
+        className={`mx-auto flex max-w-7xl items-center gap-4 px-5 transition-all duration-300 sm:px-8 ${scrolled ? "h-16" : "h-20 md:h-24"
+          }`}
       >
         <a
           href="#top"
@@ -42,7 +40,7 @@ export function Header() {
           aria-label={`${site.name} — home`}
         >
           <img
-            src={logoDark.url}
+            src={logoDark}
             alt={`${site.name} logo`}
             className={`w-auto transition-all duration-300 ${scrolled ? "h-12" : "h-16 md:h-20"}`}
             style={{ objectFit: "contain" }}
@@ -103,7 +101,7 @@ export function Header() {
       {open && (
         <div className="fixed inset-0 z-50 bg-forest text-forest-foreground lg:hidden">
           <div className="flex h-20 items-center justify-between px-5">
-            <img src={logoLight.url} alt="" className="h-12 w-auto object-contain" aria-hidden />
+            <img src={logoLight} alt="" className="h-12 w-auto object-contain" aria-hidden />
             <button
               type="button"
               onClick={() => setOpen(false)}

@@ -1072,7 +1072,7 @@ Include:
 
 Build this as a modern production-quality frontend that can later be integrated into WordPress/CMS.
 
-Preferred stack if using Lovable:
+Preferred stack:
 
 * React
 
@@ -1322,17 +1322,7 @@ Focus heavily on:
 
 Use realistic temporary content where necessary, but structure the components so all content can later be replaced through a CMS.
 
-The result should look like a **custom-designed premium landscaping website**, not a Lovable-generated template.
-
-This project was built with [Lovable](https://lovable.dev).
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/381ce8cc-ba7e-4c47-a6da-bf4ef5052a95).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+The result should look like a **custom-designed premium landscaping website**, not a generic template.
 
 ## Development
 

@@ -1,5 +1,5 @@
 import { Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
-import logoLight from "@/assets/dawson-logo-light.png.asset.json";
+import logoLight from "@/assets/dawson-logo-light.png";
 import { nav, site } from "@/content/site";
 import { track } from "@/lib/analytics";
 
@@ -9,7 +9,7 @@ export function Footer() {
       <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 sm:px-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)_minmax(0,1.4fr)]">
         <div>
           <img
-            src={logoLight.url}
+            src={logoLight}
             alt={`${site.name} logo`}
             className="h-32 w-auto object-contain object-left"
             loading="lazy"

@@ -1,5 +1,5 @@
 import { ArrowRight, Phone } from "lucide-react";
-import treeMark from "@/assets/dawson-tree.png.asset.json";
+import treeMark from "@/assets/dawson-tree.png";
 import { site } from "@/content/site";
 import { track } from "@/lib/analytics";
 import { Reveal } from "./Reveal";
@@ -8,7 +8,7 @@ export function CtaBand() {
   return (
     <section className="relative overflow-hidden bg-forest py-20 text-forest-foreground lg:py-24">
       <img
-        src={treeMark.url}
+        src={treeMark}
         alt=""
         aria-hidden
         className="pointer-events-none absolute -right-16 -bottom-24 w-[420px] opacity-[0.07]"

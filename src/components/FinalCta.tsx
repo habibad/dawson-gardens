@@ -1,5 +1,5 @@
 import { ArrowRight, Phone } from "lucide-react";
-import treeMark from "@/assets/dawson-tree.png.asset.json";
+import treeMark from "@/assets/dawson-tree.png";
 import work2 from "@/assets/work-2.jpg";
 import work3 from "@/assets/work-3.jpg";
 import svcHedge from "@/assets/svc-hedge.jpg";
@@ -31,7 +31,7 @@ export function FinalCta() {
 
       <div className="relative mx-auto max-w-2xl px-5 text-center sm:px-8">
         <Reveal>
-          <img src={treeMark.url} alt="" aria-hidden className="mx-auto w-20 opacity-90" />
+          <img src={treeMark} alt="" aria-hidden className="mx-auto w-20 opacity-90" />
           <h2 className="mt-7 font-display text-[clamp(2rem,4.6vw,3.4rem)] leading-[1.02] font-extrabold text-forest">
             Let's Make Your Outdoor Space Better.
           </h2>

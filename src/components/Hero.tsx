@@ -1,6 +1,6 @@
 import { ArrowRight, Phone, ShieldCheck } from "lucide-react";
 import heroImg from "@/assets/hero.jpg";
-import treeMark from "@/assets/dawson-tree.png.asset.json";
+import treeMark from "@/assets/dawson-tree.png";
 import { site } from "@/content/site";
 import { track } from "@/lib/analytics";
 
@@ -8,7 +8,7 @@ export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden bg-background pt-28 md:pt-32">
       <img
-        src={treeMark.url}
+        src={treeMark}
         alt=""
         aria-hidden
         className="pointer-events-none absolute -top-16 -left-24 hidden w-[420px] opacity-[0.05] md:block"
