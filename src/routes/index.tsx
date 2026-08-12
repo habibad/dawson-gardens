@@ -1,24 +1,88 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Header } from "@/components/Header";
+import { Hero } from "@/components/Hero";
+import { TrustBar } from "@/components/TrustBar";
+import { About } from "@/components/About";
+import { Services } from "@/components/Services";
+import { Work } from "@/components/Work";
+import { BeforeAfter } from "@/components/BeforeAfter";
+import { CtaBand } from "@/components/CtaBand";
+import { Testimonials } from "@/components/Testimonials";
+import { Impact } from "@/components/Impact";
+import { QuoteSection } from "@/components/QuoteSection";
+import { FinalCta } from "@/components/FinalCta";
+import { Footer } from "@/components/Footer";
+import { StickyCta } from "@/components/StickyCta";
+import { services, site } from "@/content/site";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const title = "Landscapers Perth | Dawson Landscaping & Maintenance";
+const description =
+  "Perth landscaping and garden maintenance. Dawson Landscaping designs, builds and maintains beautiful outdoor spaces across Perth, WA. Free quotes.";
+
 export const Route = createFileRoute("/")({
   component: Index,
+  head: () => ({
+    meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LandscapingBusiness",
+          name: site.name,
+          description,
+          telephone: site.phone,
+          email: site.email,
+          areaServed: { "@type": "City", name: "Perth", addressRegion: "WA", addressCountry: "AU" },
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Perth",
+            addressRegion: "WA",
+            addressCountry: "AU",
+          },
+          openingHours: "Mo-Fr 07:00-17:00",
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: "Landscaping & garden maintenance services",
+            itemListElement: services.map((s) => ({
+              "@type": "Offer",
+              itemOffered: { "@type": "Service", name: s.title, description: s.description },
+            })),
+          },
+        }),
+      },
+    ],
+  }),
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      <Header />
+      <main className="pb-20 sm:pb-0">
+        <Hero />
+        <TrustBar />
+        <About />
+        <Services />
+        <Work />
+        <BeforeAfter />
+        <CtaBand />
+        <Testimonials />
+        <Impact />
+        <QuoteSection />
+        <FinalCta />
+      </main>
+      <Footer />
+      <StickyCta />
+    </>
   );
 }
