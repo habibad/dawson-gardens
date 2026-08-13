@@ -27,10 +27,10 @@ export function Footer() {
             spaces across Perth and surrounding suburbs.
           </p>
           <div className="mt-6 flex gap-3">
-            <Link href={homeTarget} aria-label="Facebook" className="grid size-10 place-items-center rounded-full border border-white/20 transition-colors hover:bg-white/10">
+            <Link href={homeTarget} aria-label="Facebook" className="grid size-10 place-items-center rounded-full border border-white/20 transition-all duration-300 hover:border-gold hover:bg-gold hover:text-forest hover:shadow-lg">
               <Facebook className="size-4" aria-hidden />
             </Link>
-            <Link href={homeTarget} aria-label="Instagram" className="grid size-10 place-items-center rounded-full border border-white/20 transition-colors hover:bg-white/10">
+            <Link href={homeTarget} aria-label="Instagram" className="grid size-10 place-items-center rounded-full border border-white/20 transition-all duration-300 hover:border-gold hover:bg-gold hover:text-forest hover:shadow-lg">
               <Instagram className="size-4" aria-hidden />
             </Link>
           </div>
@@ -38,12 +38,12 @@ export function Footer() {
 
         <nav aria-label="Footer">
           <h2 className="text-xs font-bold tracking-[0.18em] text-gold uppercase">Navigation</h2>
-          <ul className="mt-5 space-y-3 text-sm">
+          <ul className="mt-5 space-y-3.5 text-sm">
             {nav.map((item) => {
               const href = isHome ? item.href : (item.href.startsWith("#") ? (item.href === "#top" ? "/" : (item.href === "#quote" ? "/contact" : `/${item.href.slice(1)}`)) : item.href);
               return (
                 <li key={item.label}>
-                  <Link href={href} className="opacity-80 transition-opacity hover:opacity-100">
+                  <Link href={href} className="inline-block opacity-75 hover:opacity-100 hover:text-gold hover:translate-x-1 transition-all duration-300 transform">
                     {item.label}
                   </Link>
                 </li>
@@ -57,30 +57,30 @@ export function Footer() {
           <ul className="mt-5 space-y-4 text-sm">
             <li className="flex gap-3">
               <Phone className="mt-0.5 size-4 shrink-0 text-gold" aria-hidden />
-              <a href={site.phoneHref} onClick={() => track("phone_click", { location: "footer" })} className="hover:underline">
+              <a href={site.phoneHref} onClick={() => track("phone_click", { location: "footer" })} className="opacity-75 hover:opacity-100 hover:text-gold transition-colors duration-300">
                 {site.phone}
               </a>
             </li>
             <li className="flex gap-3">
               <Mail className="mt-0.5 size-4 shrink-0 text-gold" aria-hidden />
-              <a href={`mailto:${site.email}`} onClick={() => track("email_click")} className="break-all hover:underline">
+              <a href={`mailto:${site.email}`} onClick={() => track("email_click")} className="break-all opacity-75 hover:opacity-100 hover:text-gold transition-colors duration-300">
                 {site.email}
               </a>
             </li>
             <li className="flex gap-3">
               <MapPin className="mt-0.5 size-4 shrink-0 text-gold" aria-hidden />
-              <span className="opacity-80">Perth, Western Australia</span>
+              <span className="opacity-75">Perth, Western Australia</span>
             </li>
           </ul>
         </div>
       </div>
 
       <div className="border-t border-white/10">
-        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-6 text-xs opacity-70 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-6 text-xs opacity-60 sm:flex-row sm:items-center sm:justify-between sm:px-8">
           <p>© {new Date().getFullYear()} Dawson Landscaping &amp; Maintenance</p>
           <div className="flex gap-6">
-            <Link href={homeTarget} className="hover:underline">Privacy Policy</Link>
-            <Link href={homeTarget} className="hover:underline">Terms</Link>
+            <Link href={homeTarget} className="hover:underline hover:text-gold transition-colors">Privacy Policy</Link>
+            <Link href={homeTarget} className="hover:underline hover:text-gold transition-colors">Terms</Link>
           </div>
         </div>
       </div>
