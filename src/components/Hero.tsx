@@ -1,14 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight, Phone, ShieldCheck } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
 import heroImg from "@/assets/hero-bg.png";
+import treeMark from "@/assets/dawson-tree.png";
 import { site } from "@/content/site";
 import { track } from "@/lib/analytics";
 
 export function Hero() {
   return (
-    <section id="top" className="banner bg-cover relative h-[80vh] w-full ">
+    <section id="top" className="banner bg-cover relative h-[85vh] w-full ">
       {/* Background Image with Dark Overlay */}
       {/* <div className="absolute inset-0 -z-10">
         <Image
@@ -72,8 +73,8 @@ export function Hero() {
                 <Phone className="size-5" aria-hidden />
               </span>
               <div>
-                <div className="text-xs text-gray-100">Call Us</div>
-                <div className="font-semibold">{site.phone}</div>
+                <div className="text-[18px] font-bold text-gray-100">Call Us: {site.phone}</div>
+                <div className="font-semibold">Local Perth Team</div>
               </div>
             </a>
           </div>
@@ -82,7 +83,7 @@ export function Hero() {
           <div className="h-full hidden lg:flex justify-end items-end">
             <div className="max-w-[14rem] w-full rounded-2xl bg-forest backdrop-blur-sm border border-olive/50 px-5 py-6 shadow-xl">
               <div className="flex flex-col items-center justify-center gap-3 mb-3">
-                <ShieldCheck className="size-5 text-gold shrink-0" aria-hidden />
+                <Image src={treeMark} alt="" className="size-10" aria-hidden />
                 <p className="text-[0.75rem] font-bold tracking-[0.15em] text-gold uppercase">
                   Local Perth Team
                 </p>

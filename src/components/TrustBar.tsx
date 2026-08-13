@@ -7,7 +7,7 @@ const icons = [MapPin, ShieldCheck, Hammer, CalendarCheck, FileText];
 export function TrustBar() {
   return (
     <section aria-labelledby="trust-heading" className=" z-10 relative ">
-      <div className="mx-auto max-w-7xl p-5 py-8 bg-forest border border-olive/60 rounded-sm -mt-10 ">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8 py-8 bg-forest border border-olive/60 rounded-sm -mt-10 ">
         {/* <Reveal>
           <h2
             id="trust-heading"
@@ -20,8 +20,9 @@ export function TrustBar() {
         <ul className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-5">
           {trustPoints.map((point, i) => {
             const Icon = icons[i % icons.length] ?? MapPin;
+            const isLastItem = i === trustPoints.length - 1;
             return (
-              <Reveal as="li" key={point.title} delay={i * 70} className="flex min-w-0 items-start gap-4 group">
+              <Reveal as="li" key={point.title} delay={i * 70} className={`flex min-w-0 py-4 items-start gap-4 group ${!isLastItem ? 'border-r-1 border-olive/60' : ''}`}>
                 <span className="grid size-11 shrink-0 place-items-center rounded-full bg-gold/20 text-gold transition-all duration-300 group-hover:bg-gold group-hover:text-forest group-hover:scale-110">
                   <Icon className="size-5 transition-colors duration-300" aria-hidden />
                 </span>
