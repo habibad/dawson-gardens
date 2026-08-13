@@ -41,7 +41,7 @@ export function Header() {
         }`}
     >
       <div
-        className={`mx-auto flex max-w-7xl items-center gap-4 px-5 transition-all duration-300 sm:px-8 ${displayScrolled ? "h-16" : "h-20 md:h-24"
+        className={`mx-auto flex max-w-7xl items-center gap-4 px-5 transition-all duration-300 sm:px-8 ${displayScrolled ? "h-20" : "h-24 md:h-28"
           }`}
       >
         <Link
@@ -53,7 +53,7 @@ export function Header() {
             src={logoDark}
             alt={`${site.name} logo`}
             priority
-            className={`w-auto transition-all duration-300 ${displayScrolled ? "h-12" : "h-16 md:h-20"}`}
+            className={`w-auto transition-all duration-300 ${displayScrolled ? "h-16" : "h-24 md:h-28"}`}
             style={{ objectFit: "contain" }}
           />
           <span className="sr-only">{site.name}</span>
@@ -127,7 +127,7 @@ export function Header() {
             <Image
               src={logoLight}
               alt=""
-              className="h-18 w-auto object-contain"
+              className="h-34 w-auto object-contain"
               aria-hidden
             />
             <button

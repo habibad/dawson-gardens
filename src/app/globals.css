@@ -188,11 +188,4 @@
   background-position: top center;
 }
 
-@utility final-cta-blob {
-  border-radius: 1.75rem;
-
-  @variant lg {
-    border-radius: 0;
-    clip-path: url("#final-cta-blob-path");
-  }
-}
+/* final-cta-blob clip is applied via inline style in FinalCta.tsx */
