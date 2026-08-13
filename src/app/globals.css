@@ -187,3 +187,12 @@
   background-repeat: no-repeat;
   background-position: top center;
 }
+
+@utility final-cta-blob {
+  border-radius: 1.75rem;
+
+  @variant lg {
+    border-radius: 0;
+    clip-path: url("#final-cta-blob-path");
+  }
+}
