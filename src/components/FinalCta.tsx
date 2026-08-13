@@ -1,3 +1,6 @@
+"use client";
+
+import Image from "next/image";
 import { ArrowRight, Phone } from "lucide-react";
 import treeMark from "@/assets/dawson-tree.png";
 import work2 from "@/assets/work-2.jpg";
@@ -19,11 +22,10 @@ export function FinalCta() {
   return (
     <section className="relative overflow-hidden bg-cream py-20 lg:py-28">
       {decor.map((d) => (
-        <img
+        <Image
           key={d.alt}
           src={d.src}
           alt={d.alt}
-          loading="lazy"
           className={`absolute hidden rounded-2xl object-cover shadow-soft lg:block ${d.className}`}
           style={{ aspectRatio: "4 / 3" }}
         />
@@ -31,9 +33,9 @@ export function FinalCta() {
 
       <div className="relative mx-auto max-w-2xl px-5 text-center sm:px-8">
         <Reveal>
-          <img src={treeMark} alt="" aria-hidden className="mx-auto w-20 opacity-90" />
+          <Image src={treeMark} alt="" aria-hidden className="mx-auto w-20 opacity-90" />
           <h2 className="mt-7 font-display text-[clamp(2rem,4.6vw,3.4rem)] leading-[1.02] font-extrabold text-forest">
-            Let's Make Your Outdoor Space Better.
+            Let&apos;s Make Your Outdoor Space Better.
           </h2>
           <p className="mx-auto mt-5 max-w-md text-base text-muted-foreground">
             Professional landscaping and maintenance for Perth homes and properties.

@@ -1,3 +1,6 @@
+"use client";
+
+import Image from "next/image";
 import { ArrowRight, Phone, ShieldCheck } from "lucide-react";
 import heroImg from "@/assets/hero.jpg";
 import treeMark from "@/assets/dawson-tree.png";
@@ -7,7 +10,7 @@ import { track } from "@/lib/analytics";
 export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden bg-background pt-28 md:pt-32">
-      <img
+      <Image
         src={treeMark}
         alt=""
         aria-hidden
@@ -58,12 +61,11 @@ export function Hero() {
 
         <div className="relative">
           <div className="overflow-hidden rounded-[2rem] rounded-tr-[7rem] shadow-lift">
-            <img
+            <Image
               src={heroImg}
               alt="Professionally landscaped Perth backyard with limestone paving, lawn and native garden beds at golden hour"
-              width={1600}
-              height={1408}
-              fetchPriority="high"
+              priority
+              sizes="(min-width: 1024px) 58vw, 100vw"
               className="h-[380px] w-full object-cover sm:h-[520px] lg:h-[640px]"
             />
           </div>

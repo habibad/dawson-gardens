@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import about1 from "@/assets/about-1.jpg";
 import about2 from "@/assets/about-2.jpg";
@@ -9,22 +10,18 @@ export function About() {
       <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:items-center lg:gap-20">
         <Reveal className="relative">
           <div className="overflow-hidden rounded-[2rem] rounded-bl-[6rem]">
-            <img
+            <Image
               src={about1}
               alt="Dawson landscaper pruning a native shrub in a sunlit Perth garden"
-              loading="lazy"
-              width={1200}
-              height={1500}
+              sizes="(min-width: 1024px) 50vw, 100vw"
               className="h-[420px] w-full object-cover sm:h-[560px]"
             />
           </div>
           <div className="absolute -right-2 -bottom-8 w-40 overflow-hidden rounded-2xl border-4 border-background shadow-soft sm:right-6 sm:w-56">
-            <img
+            <Image
               src={about2}
               alt="Neatly clipped hedges and mulched garden bed at a Perth home"
-              loading="lazy"
-              width={1000}
-              height={1000}
+              sizes="(min-width: 640px) 14rem, 10rem"
               className="h-36 w-full object-cover sm:h-48"
             />
           </div>

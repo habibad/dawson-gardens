@@ -1,4 +1,7 @@
+"use client";
+
 import { useCallback, useRef, useState } from "react";
+import Image from "next/image";
 import { MoveHorizontal } from "lucide-react";
 import beforeImg from "@/assets/before.jpg";
 import afterImg from "@/assets/after.jpg";
@@ -55,12 +58,10 @@ export function BeforeAfter() {
             onPointerMove={onPointerMove}
             className="relative mt-10 touch-pan-y overflow-hidden rounded-[2rem] shadow-lift select-none"
           >
-            <img
+            <Image
               src={afterImg}
               alt="Perth backyard after landscaping: new lawn, mulched garden beds and clean paving"
-              loading="lazy"
-              width={1400}
-              height={900}
+              sizes="(min-width: 1024px) 72rem, 100vw"
               className="block h-[300px] w-full object-cover sm:h-[460px] lg:h-[560px]"
             />
             <div
@@ -68,11 +69,12 @@ export function BeforeAfter() {
               style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
               aria-hidden
             >
-              <img
+              <Image
                 src={beforeImg}
                 alt=""
-                loading="lazy"
-                className="h-full w-full object-cover"
+                fill
+                sizes="(min-width: 1024px) 72rem, 100vw"
+                className="object-cover"
               />
             </div>
 

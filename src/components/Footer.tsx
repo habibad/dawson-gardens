@@ -1,3 +1,6 @@
+"use client";
+
+import Image from "next/image";
 import { Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
 import logoLight from "@/assets/dawson-logo-light.png";
 import { nav, site } from "@/content/site";
@@ -8,11 +11,10 @@ export function Footer() {
     <footer className="bg-forest text-forest-foreground">
       <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 sm:px-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)_minmax(0,1.4fr)]">
         <div>
-          <img
+          <Image
             src={logoLight}
             alt={`${site.name} logo`}
             className="h-32 w-auto object-contain object-left"
-            loading="lazy"
           />
           <p className="mt-6 max-w-sm text-sm leading-relaxed opacity-75">
             Perth-based landscaping and garden maintenance. We design, build and care for outdoor

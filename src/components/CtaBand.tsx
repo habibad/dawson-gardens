@@ -1,3 +1,6 @@
+"use client";
+
+import Image from "next/image";
 import { ArrowRight, Phone } from "lucide-react";
 import treeMark from "@/assets/dawson-tree.png";
 import { site } from "@/content/site";
@@ -7,7 +10,7 @@ import { Reveal } from "./Reveal";
 export function CtaBand() {
   return (
     <section className="relative overflow-hidden bg-forest py-20 text-forest-foreground lg:py-24">
-      <img
+      <Image
         src={treeMark}
         alt=""
         aria-hidden
@@ -19,7 +22,7 @@ export function CtaBand() {
             Ready to Transform Your Outdoor Space?
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-base opacity-80">
-            Tell us what you're looking to achieve and we'll help you plan the next step.
+            Tell us what you&apos;re looking to achieve and we&apos;ll help you plan the next step.
           </p>
           <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
             <a

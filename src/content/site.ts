@@ -3,6 +3,7 @@
  * (WordPress, Sanity, etc.) without changing any component.
  */
 
+import type { StaticImageData } from "next/image";
 import svcDesign from "@/assets/svc-design.jpg";
 import svcMaintenance from "@/assets/svc-maintenance.jpg";
 import svcLawn from "@/assets/svc-lawn.jpg";
@@ -44,7 +45,7 @@ export type Service = {
   slug: string;
   title: string;
   description: string;
-  image: string;
+  image: StaticImageData;
 };
 
 export const services: Service[] = [
@@ -91,7 +92,7 @@ export type Project = {
   category: string;
   title: string;
   location: string;
-  image: string;
+  image: StaticImageData;
 };
 
 export const projects: Project[] = [

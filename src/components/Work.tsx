@@ -1,3 +1,6 @@
+"use client";
+
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { projects } from "@/content/site";
 import { track } from "@/lib/analytics";
@@ -49,12 +52,10 @@ function ProjectCard({
         onClick={() => track("portfolio_project_click", { project: project.slug })}
         className="group relative block overflow-hidden rounded-[2rem]"
       >
-        <img
+        <Image
           src={project.image}
           alt={`${project.title} — ${project.category} in ${project.location}`}
-          loading="lazy"
-          width={1200}
-          height={tall ? 1408 : 800}
+          sizes="(min-width: 1024px) 50vw, 100vw"
           className={`w-full object-cover transition-transform duration-700 group-hover:scale-[1.04] ${
             tall ? "h-[420px] lg:h-[720px]" : "h-[300px] lg:h-[348px]"
           }`}

@@ -1,4 +1,7 @@
+"use client";
+
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { Menu, X, Phone } from "lucide-react";
 import logoDark from "@/assets/dawson-logo-dark.png";
 import logoLight from "@/assets/dawson-logo-light.png";
@@ -39,13 +42,12 @@ export function Header() {
           className="flex min-w-0 shrink-0 items-center"
           aria-label={`${site.name} — home`}
         >
-          <img
+          <Image
             src={logoDark}
             alt={`${site.name} logo`}
+            priority
             className={`w-auto transition-all duration-300 ${scrolled ? "h-12" : "h-16 md:h-20"}`}
             style={{ objectFit: "contain" }}
-            width={160}
-            height={160}
           />
           <span className="sr-only">{site.name}</span>
         </a>
@@ -101,7 +103,12 @@ export function Header() {
       {open && (
         <div className="fixed inset-0 z-50 bg-forest text-forest-foreground lg:hidden">
           <div className="flex h-20 items-center justify-between px-5">
-            <img src={logoLight} alt="" className="h-12 w-auto object-contain" aria-hidden />
+            <Image
+              src={logoLight}
+              alt=""
+              className="h-12 w-auto object-contain"
+              aria-hidden
+            />
             <button
               type="button"
               onClick={() => setOpen(false)}

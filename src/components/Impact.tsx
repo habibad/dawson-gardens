@@ -1,3 +1,4 @@
+import Image from "next/image";
 import impactImg from "@/assets/impact.jpg";
 import { impactPoints } from "@/content/site";
 import { Reveal } from "./Reveal";
@@ -5,13 +6,12 @@ import { Reveal } from "./Reveal";
 export function Impact() {
   return (
     <section aria-labelledby="impact-heading" className="relative isolate overflow-hidden">
-      <img
+      <Image
         src={impactImg}
         alt="Landscaped Perth garden at golden hour"
-        loading="lazy"
-        width={1800}
-        height={1000}
-        className="absolute inset-0 -z-10 h-full w-full object-cover"
+        fill
+        sizes="100vw"
+        className="-z-10 object-cover"
       />
       <div className="absolute inset-0 -z-10 bg-gradient-to-r from-forest/95 via-forest/80 to-forest/55" />
 

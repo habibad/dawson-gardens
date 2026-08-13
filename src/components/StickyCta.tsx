@@ -1,3 +1,5 @@
+"use client";
+
 import { Phone } from "lucide-react";
 import { site } from "@/content/site";
 import { track } from "@/lib/analytics";

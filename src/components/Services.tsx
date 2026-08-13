@@ -1,3 +1,6 @@
+"use client";
+
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { services } from "@/content/site";
 import { track } from "@/lib/analytics";
@@ -23,12 +26,10 @@ export function Services() {
                 className="group flex h-full flex-col overflow-hidden rounded-3xl bg-card shadow-[0_1px_0_0_var(--border)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lift"
               >
                 <div className="overflow-hidden">
-                  <img
+                  <Image
                     src={service.image}
                     alt={`${service.title} — Dawson Landscaping Perth`}
-                    loading="lazy"
-                    width={1000}
-                    height={800}
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                     className="h-52 w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 </div>

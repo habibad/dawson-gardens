@@ -1,3 +1,5 @@
+"use client";
+
 import { useRef, useState } from "react";
 import { ArrowRight, Clock, Mail, MapPin, Phone } from "lucide-react";
 import { services, site } from "@/content/site";
@@ -31,10 +33,10 @@ export function QuoteSection() {
         <Reveal>
           <p className="eyebrow">Get in Touch</p>
           <h2 className="mt-5 font-display text-[clamp(2rem,4.4vw,3.2rem)] leading-[1.02] font-extrabold text-forest">
-            Let's Talk About Your Outdoor Space.
+            Let&apos;s Talk About Your Outdoor Space.
           </h2>
           <p className="mt-5 max-w-md text-base leading-relaxed text-muted-foreground">
-            Tell us a little about your project and we'll get back to you to discuss your
+            Tell us a little about your project and we&apos;ll get back to you to discuss your
             landscaping or maintenance needs.
           </p>
 
@@ -96,7 +98,7 @@ export function QuoteSection() {
               <div className="py-12 text-center">
                 <h3 className="font-display text-2xl font-bold text-forest">Thanks — request received.</h3>
                 <p className="mx-auto mt-3 max-w-sm text-sm text-muted-foreground">
-                  This demo form isn't connected to a mailbox yet. Connect it to your preferred
+                  This demo form isn&apos;t connected to a mailbox yet. Connect it to your preferred
                   form handler or CRM to start receiving quote requests.
                 </p>
               </div>
@@ -152,7 +154,7 @@ export function QuoteSection() {
                   <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden />
                 </button>
                 <p className="mt-4 text-center text-xs text-muted-foreground">
-                  No obligation. We'll only use your details to respond to this enquiry.
+                  No obligation. We&apos;ll only use your details to respond to this enquiry.
                 </p>
               </form>
             )}
