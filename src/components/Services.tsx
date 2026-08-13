@@ -1,12 +1,17 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ArrowUpRight } from "lucide-react";
 import { services } from "@/content/site";
 import { track } from "@/lib/analytics";
 import { Reveal } from "./Reveal";
 
 export function Services() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+
   return (
     <section id="services" className="bg-sand py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
@@ -20,8 +25,8 @@ export function Services() {
         <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, i) => (
             <Reveal as="li" key={service.slug} delay={(i % 3) * 90}>
-              <a
-                href="#quote"
+              <Link
+                href={isHome ? "#quote" : "/contact"}
                 onClick={() => track("service_click", { service: service.slug })}
                 className="group flex h-full flex-col overflow-hidden rounded-3xl bg-card shadow-[0_1px_0_0_var(--border)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lift"
               >
@@ -49,7 +54,7 @@ export function Services() {
                     />
                   </span>
                 </div>
-              </a>
+              </Link>
             </Reveal>
           ))}
         </ul>

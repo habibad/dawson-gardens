@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ArrowUpRight } from "lucide-react";
 import { projects } from "@/content/site";
 import { track } from "@/lib/analytics";
@@ -45,10 +47,13 @@ function ProjectCard({
   project: (typeof projects)[number];
   tall?: boolean;
 }) {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+
   return (
     <Reveal>
-      <a
-        href="#quote"
+      <Link
+        href={isHome ? "#quote" : "/contact"}
         onClick={() => track("portfolio_project_click", { project: project.slug })}
         className="group relative block overflow-hidden rounded-[2rem]"
       >
@@ -73,7 +78,7 @@ function ProjectCard({
             <ArrowUpRight className="size-5" aria-hidden />
           </span>
         </div>
-      </a>
+      </Link>
     </Reveal>
   );
 }

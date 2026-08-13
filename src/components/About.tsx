@@ -1,10 +1,16 @@
+"use client";
+
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ArrowUpRight } from "lucide-react";
 import about1 from "@/assets/about-1.jpg";
 import about2 from "@/assets/about-2.jpg";
 import { Reveal } from "./Reveal";
-
 export function About() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+
   return (
     <section id="about" className="bg-background py-20 lg:py-28">
       <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:items-center lg:gap-20">
@@ -57,13 +63,13 @@ export function About() {
             </div>
           </dl>
 
-          <a
-            href="#services"
+          <Link
+            href={isHome ? "#services" : "/services"}
             className="group mt-9 inline-flex items-center gap-2 rounded-full border border-forest/25 px-6 py-3.5 text-xs font-bold tracking-[0.16em] text-forest uppercase transition-colors hover:bg-cream"
           >
             About Dawson
             <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden />
-          </a>
+          </Link>
         </Reveal>
       </div>
     </section>

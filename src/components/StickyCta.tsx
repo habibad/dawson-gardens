@@ -1,10 +1,15 @@
 "use client";
 
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Phone } from "lucide-react";
 import { site } from "@/content/site";
 import { track } from "@/lib/analytics";
 
 export function StickyCta() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+
   return (
     <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 backdrop-blur-md sm:hidden">
       <div className="grid grid-cols-2 gap-2 p-3">
@@ -16,13 +21,13 @@ export function StickyCta() {
           <Phone className="size-4" aria-hidden />
           Call
         </a>
-        <a
-          href="#quote"
+        <Link
+          href={isHome ? "#quote" : "/contact"}
           onClick={() => track("quote_cta_click", { location: "sticky_mobile" })}
           className="inline-flex items-center justify-center rounded-full bg-forest py-3.5 text-xs font-bold tracking-[0.14em] text-forest-foreground uppercase"
         >
           Free Quote
-        </a>
+        </Link>
       </div>
     </div>
   );

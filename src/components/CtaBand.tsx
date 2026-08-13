@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ArrowRight, Phone } from "lucide-react";
 import treeMark from "@/assets/dawson-tree.png";
 import { site } from "@/content/site";
@@ -8,6 +10,9 @@ import { track } from "@/lib/analytics";
 import { Reveal } from "./Reveal";
 
 export function CtaBand() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+
   return (
     <section className="relative overflow-hidden bg-forest py-20 text-forest-foreground lg:py-24">
       <Image
@@ -25,14 +30,14 @@ export function CtaBand() {
             Tell us what you&apos;re looking to achieve and we&apos;ll help you plan the next step.
           </p>
           <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
-            <a
-              href="#quote"
+            <Link
+              href={isHome ? "#quote" : "/contact"}
               onClick={() => track("quote_cta_click", { location: "cta_band" })}
               className="group inline-flex items-center justify-center gap-2 rounded-full bg-gold px-7 py-4 text-xs font-bold tracking-[0.16em] text-forest uppercase transition-transform hover:-translate-y-0.5"
             >
               Request a Free Quote
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden />
-            </a>
+            </Link>
             <a
               href={site.phoneHref}
               onClick={() => track("phone_click", { location: "cta_band" })}

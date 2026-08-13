@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ArrowRight, Phone } from "lucide-react";
 import treeMark from "@/assets/dawson-tree.png";
 import work2 from "@/assets/work-2.jpg";
@@ -19,6 +21,9 @@ const decor = [
 ];
 
 export function FinalCta() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+
   return (
     <section className="relative overflow-hidden bg-cream py-20 lg:py-28">
       {decor.map((d) => (
@@ -41,14 +46,14 @@ export function FinalCta() {
             Professional landscaping and maintenance for Perth homes and properties.
           </p>
           <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
-            <a
-              href="#quote"
+            <Link
+              href={isHome ? "#quote" : "/contact"}
               onClick={() => track("quote_cta_click", { location: "final_cta" })}
               className="group inline-flex items-center justify-center gap-2 rounded-full bg-forest px-7 py-4 text-xs font-bold tracking-[0.16em] text-forest-foreground uppercase transition-transform hover:-translate-y-0.5"
             >
               Get a Free Quote
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden />
-            </a>
+            </Link>
             <a
               href={site.phoneHref}
               onClick={() => track("phone_click", { location: "final_cta" })}

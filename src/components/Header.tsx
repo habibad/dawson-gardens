@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X, Phone } from "lucide-react";
 import logoDark from "@/assets/dawson-logo-dark.png";
 import logoLight from "@/assets/dawson-logo-light.png";
@@ -9,6 +11,9 @@ import { nav, site } from "@/content/site";
 import { track } from "@/lib/analytics";
 
 export function Header() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -26,19 +31,21 @@ export function Header() {
     };
   }, [open]);
 
+  const displayScrolled = !isHome || scrolled;
+
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${scrolled
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${displayScrolled
         ? "bg-background/90 shadow-[0_1px_0_0_var(--border)] backdrop-blur-md"
         : "bg-transparent"
         }`}
     >
       <div
-        className={`mx-auto flex max-w-7xl items-center gap-4 px-5 transition-all duration-300 sm:px-8 ${scrolled ? "h-16" : "h-20 md:h-24"
+        className={`mx-auto flex max-w-7xl items-center gap-4 px-5 transition-all duration-300 sm:px-8 ${displayScrolled ? "h-16" : "h-20 md:h-24"
           }`}
       >
-        <a
-          href="#top"
+        <Link
+          href={isHome ? "#top" : "/"}
           className="flex min-w-0 shrink-0 items-center"
           aria-label={`${site.name} — home`}
         >
@@ -46,23 +53,26 @@ export function Header() {
             src={logoDark}
             alt={`${site.name} logo`}
             priority
-            className={`w-auto transition-all duration-300 ${scrolled ? "h-12" : "h-16 md:h-20"}`}
+            className={`w-auto transition-all duration-300 ${displayScrolled ? "h-12" : "h-16 md:h-20"}`}
             style={{ objectFit: "contain" }}
           />
           <span className="sr-only">{site.name}</span>
-        </a>
+        </Link>
 
         <nav aria-label="Primary" className="ml-auto hidden items-center gap-8 lg:flex">
-          {nav.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              onClick={() => track("nav_click", { label: item.label })}
-              className="text-sm font-semibold text-foreground/75 transition-colors hover:text-primary"
-            >
-              {item.label}
-            </a>
-          ))}
+          {nav.map((item) => {
+            const href = isHome ? item.href : (item.href.startsWith("#") ? (item.href === "#top" ? "/" : (item.href === "#quote" ? "/contact" : `/${item.href.slice(1)}`)) : item.href);
+            return (
+              <Link
+                key={item.label}
+                href={href}
+                onClick={() => track("nav_click", { label: item.label })}
+                className="text-sm font-semibold text-foreground/75 transition-colors hover:text-primary"
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="ml-auto flex items-center gap-2 lg:ml-6 lg:gap-4">
@@ -82,13 +92,13 @@ export function Header() {
           >
             <Phone className="size-4" aria-hidden />
           </a>
-          <a
-            href="#quote"
+          <Link
+            href={isHome ? "#quote" : "/contact"}
             onClick={() => track("quote_cta_click", { location: "header" })}
             className="hidden rounded-full bg-forest px-5 py-3 text-xs font-bold tracking-[0.14em] text-forest-foreground uppercase transition-transform hover:-translate-y-0.5 hover:bg-olive sm:inline-flex"
           >
             Get a Free Quote
-          </a>
+          </Link>
           <button
             type="button"
             onClick={() => setOpen(true)}
@@ -119,21 +129,24 @@ export function Header() {
             </button>
           </div>
           <nav aria-label="Mobile" className="flex flex-col gap-1 px-5 pt-6">
-            {nav.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                onClick={() => {
-                  setOpen(false);
-                  track("nav_click", { label: item.label, location: "mobile" });
-                }}
-                className="border-b border-white/10 py-4 font-display text-3xl tracking-tight"
-              >
-                {item.label}
-              </a>
-            ))}
-            <a
-              href="#quote"
+            {nav.map((item) => {
+              const href = isHome ? item.href : (item.href.startsWith("#") ? (item.href === "#top" ? "/" : (item.href === "#quote" ? "/contact" : `/${item.href.slice(1)}`)) : item.href);
+              return (
+                <Link
+                  key={item.label}
+                  href={href}
+                  onClick={() => {
+                    setOpen(false);
+                    track("nav_click", { label: item.label, location: "mobile" });
+                  }}
+                  className="border-b border-white/10 py-4 font-display text-3xl tracking-tight"
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+            <Link
+              href={isHome ? "#quote" : "/contact"}
               onClick={() => {
                 setOpen(false);
                 track("quote_cta_click", { location: "mobile_menu" });
@@ -141,7 +154,7 @@ export function Header() {
               className="mt-8 rounded-full bg-gold px-6 py-4 text-center text-xs font-bold tracking-[0.16em] text-forest uppercase"
             >
               Get a Free Quote
-            </a>
+            </Link>
             <a
               href={site.phoneHref}
               onClick={() => track("phone_click", { location: "mobile_menu" })}
